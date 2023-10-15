@@ -1,4 +1,4 @@
-{/* Set up Component Structure for a button that listens to the user input when clicked and displays it on screen */}
+
 import React from 'react'
 import { useState } from 'react'
 

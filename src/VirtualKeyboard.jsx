@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const VirtualKeyboard = ({ onLetterClick, disabledLettersCorrect, disabledLettersIncorrect  }) => {
-    const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
+const VirtualKeyboard = ({ onLetterClick, disabledLettersCorrect, disabledLettersIncorrect }) => {
+    
+    const urduAlphabet = 'ا ب پ ت ٹ ث ج چ ح خ د ڈ ذ ر ڑ ز ژ س ش ص ض ط ظ ع غ ف ق ک گ ل م ن ں و ہ ھ ء ی ے'.split(' ');
 
     const handleClick = (letter) => {
         onLetterClick(letter);
@@ -19,14 +20,14 @@ const VirtualKeyboard = ({ onLetterClick, disabledLettersCorrect, disabledLetter
 
     return (
         <div className="keyboard">
-            {alphabet.map(letter => (
+            {urduAlphabet.map(letter => (
                 <button 
                     key={letter}
                     onClick={() => onLetterClick(letter)}
                     disabled={disabledLettersCorrect.includes(letter) || disabledLettersIncorrect.includes(letter)}
                     className={getButtonStyle(letter)}
                 >
-                    {letter.toUpperCase()}
+                    {letter}
                 </button>
             ))}
         </div>

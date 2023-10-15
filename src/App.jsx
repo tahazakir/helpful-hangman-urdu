@@ -69,7 +69,7 @@ function App() {
 
     textArray.forEach((text, index) => {
       const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = "en";
+      utterance.lang = "ur-PK";
       utterance.voice = preferredVoice;
 
       if (index > 0) {
@@ -169,30 +169,30 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Helpful Hangman</h1>
+      <h1>ہیلپفل ہینگمین</h1>
 
       {/* Game Status Messages */}
       {hasWon && (
         <div className="win-message">
-          Congratulations! You've won!
+          مبارک ہو! آپ جیت گئے
           <button className="reset-button" onClick={resetGame}>
-            Try Again
+            دوبارہ کوشش کریں
           </button>
         </div>
       )}
       {hasLost && (
         <div className="loss-message">
-          Sorry! You've lost. The word was: {wordObj.word.toUpperCase()}
+          معاف کیجئے! آپ ہار گئے۔ لفظ تھا: {wordObj.word.toUpperCase()}
           <button className="reset-button" onClick={resetGame}>
-            Try Again
+            دوبارہ کوشش کریں
           </button>
         </div>
       )}
 
-      <div className="game-container">
+      <div className="game-container" dir="rtl"> 
         <div className="left-column">
           <WordDisplay word={wordObj.word} guessedLetters={guessedLetters} />
-          <div className="hint">Hint: {wordObj.hint}</div>
+          <div className="hint">اشارہ: {wordObj.hint}</div>
           <VirtualKeyboard
             onLetterClick={handleLetterGuess}
             disabledLettersCorrect={guessedLetters}
@@ -207,7 +207,8 @@ function App() {
         </div>
       </div>
     </div>
-  );
+);
+
 }
 
 export default App;
